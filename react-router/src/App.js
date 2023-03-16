@@ -1,16 +1,10 @@
-import './App.css';
+import React from 'react';
+import {BrowserRouter as Router, Route, Link, Routes} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <Router>
+    <Router>
       <div>
         <nav>
           <ul>
@@ -21,27 +15,34 @@ function App() {
               <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to="/users">Users</Link>
+              {/* 👇️ link to dynamic path */}
+              <Link to="/users/4200">Users</Link>
+            </li>
+            <li>
+              {/* 👇️ link to catch all route */}
+              <Link to="/does-not-exist">Catch all route</Link>
             </li>
           </ul>
         </nav>
 
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-        <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/users">
-            <Users />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
+        {/* 👇️ Wrap your Route components in a Routes component */}
+        <Routes>
+          <Route path="/about" element={<About />} />
+          {/* 👇️ handle dynamic path */}
+          <Route path="/users/:userId" element={<Users />} />
+          <Route path="/" element={<Home />} />
+          {/* 👇️ only match this when no other routes match */}
+          <Route
+            path="*"
+            element={
+              <div>
+                <h2>404 Page not found etc</h2>
+              </div>
+            }
+          />
+        </Routes>
       </div>
     </Router>
-    </div>
   );
 }
 
@@ -54,7 +55,7 @@ function About() {
 }
 
 function Users() {
-  return <h2>Users</h2>;
-}
+  const params = useParams();
 
-export default App;
+  return <h2>Users: {params.userId}</h2>;
+}
