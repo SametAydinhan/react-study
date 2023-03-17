@@ -30,7 +30,7 @@ export default function App() {
           <Route path="/about" element={<About />} />
           {/* 👇️ handle dynamic path */}
           <Route path="/users/:userId" element={<Users />} />
-          <Route path="/" element={<Home />} />
+          <Route path="/" exact element={<Home />} />
           {/* 👇️ only match this when no other routes match */}
           <Route
             path="*"
