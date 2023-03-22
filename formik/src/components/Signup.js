@@ -3,7 +3,7 @@ import { useFormik } from 'formik';
 import Validations from './validations';
 
 function Signup() {
-    const {handleSubmit, handleChange ,values} = useFormik({
+    const {handleSubmit, handleChange , handleBlur,values, errors, touched} = useFormik({
         initialValues: {
           email: '',
           password:'',
@@ -19,12 +19,18 @@ function Signup() {
         <h1>Sign Up</h1>
        <form onSubmit={handleSubmit}>
         <label>Email: </label>
-        <input value={values.email} name="email" onChange={handleChange} />
+        <input value={values.email} name="email" onChange={handleChange} onBlur={handleBlur} />
+
+        {errors.email && touched.email &&(<div className='error'>{errors.email}</div>)}
+
         <br /><br />
         <label>Password: </label>
-        <input value={values.password} name="password" onChange={handleChange}/> <br /> <br />
+        <input value={values.password} name="password" onChange={handleChange} onBlur={handleBlur}/> 
+        {errors.password && touched.password && (<div className='error'>{errors.password}</div>)}<br /> <br />
         <label>Confirm Password: </label>
-        <input value={values.passwordConfirm} name="passwordConfirm" onChange={handleChange}/> <br /> <br />
+        <input value={values.passwordConfirm} name="passwordConfirm" onChange={handleChange} onBlur={handleBlur}/> 
+        {errors.passwordConfirm && touched.passwordConfirm && (<div className='error'>{errors.passwordConfirm}</div>)}
+        <br /><br />
         <button type="submit">Submit</button>
         <br /><br />
         {JSON.stringify(values)}
