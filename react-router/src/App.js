@@ -1,6 +1,6 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Link, Routes} from 'react-router-dom';
-import {useParams} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 export default function App() {
   return (
