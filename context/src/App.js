@@ -1,15 +1,12 @@
-import Button from './components/Button';
 import {TeamProvider} from './context/ThemeContext';
-import Header from './components/Header';
+
 import './App.css';
+import Container from './components/Container';
 
 function App() {
   return (
       <TeamProvider>  
-        <Header/>
-        <hr />
-        <Button/>
-      
+       <Container/>
       </TeamProvider>
   );
 }

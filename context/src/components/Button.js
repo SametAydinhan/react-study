@@ -3,7 +3,6 @@ import ThemeContext from '../context/ThemeContext'
 
 function Button() {
   const {theme,setTheme} = useContext(ThemeContext);
-  console.log(theme);
   return (
     <div>
         Active Theme: {theme}
