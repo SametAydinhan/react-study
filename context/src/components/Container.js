@@ -3,6 +3,7 @@ import Header from './Header';
 import Button from './Button';
 
 import ThemeContext from '../context/ThemeContext';
+import Profile from './Profile';
 
 
 function Container() {
@@ -12,6 +13,7 @@ function Container() {
      <Header/>
         <hr />
     <Button/>
+    <Profile/>
     </div>
   )
 }
