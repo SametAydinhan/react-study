@@ -1,8 +1,8 @@
-import { createContext,useState , useEffect} from "react";
+import { createContext,useState , useEffect, useContext} from "react";
 
 const ThemeContext = createContext();
 
-export const TeamProvider = ({children}) =>{
+ const TeamProvider = ({children}) =>{
     const [theme,setTheme] = useState(localStorage.getItem('theme' || 'light'));
 
     useEffect(()=>{
@@ -15,4 +15,5 @@ export const TeamProvider = ({children}) =>{
     return <ThemeContext.Provider value={values}>{children}</ThemeContext.Provider>
 }
 
-export default ThemeContext; 
+const useTheme = () => useContext(ThemeContext);
+export  {useTheme,TeamProvider}; 
