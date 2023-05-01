@@ -6,9 +6,7 @@ function Header() {
   return (
     <div>Active Theme: {theme}
     <button onClick={() => setTheme(theme ==='light' ? 'dark' : 'light')}>Change Theme</button>
-    </div>
-   
+    </div>  
   )
 }
-
 export default Header
