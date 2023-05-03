@@ -1,12 +1,12 @@
-import "./App.css";
-
+import './App.css';
+import Palatte from './components/Palatte';
 
 function App() {
-	return(
-		<div className="App">
-
-		</div>
-	);
+  return (
+    <div className="App">
+      <Palatte />
+    </div>
+  );
 }
 
 export default App;

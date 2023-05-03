@@ -6,12 +6,8 @@
   flex-direction: column;
 }
 
-.palette {
+.palatte{
   display: flex;
   flex-direction: column;
   margin-top: 40px;
-}
-
-.palette button {
-  margin-top: 10px;
 }
