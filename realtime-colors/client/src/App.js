@@ -1,5 +1,7 @@
 import './App.css';
 import Palatte from './components/Palatte';
+import { init } from './socketApi';
+import { useEffect } from 'react';
 
 function App() {
   return (

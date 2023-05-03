@@ -11,3 +11,7 @@
   flex-direction: column;
   margin-top: 40px;
 }
+ 
+.palatte button {
+  margin-top: 10px;
+}
