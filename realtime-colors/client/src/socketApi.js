@@ -1,12 +1,12 @@
 import io from "socket.io-client";
 
-let socket
+let socket;
 
 export const init = () => {
     console.log("Sunucuya bağlanılıyor...");
-    socket = io('http://localhost3000' , {
-        transports: ['websocket'],
+    socket = io("localhost:3001" , {
+        transports: ["websocket"],
     });
 
-    socket.on('connect', () => console.log("Sunucuya bağlanto başarıyla gerçekleşti"))
+    socket.on('connect', () => console.log("Sunucuya bağlantı başarıyla gerçekleşti"))
 }
