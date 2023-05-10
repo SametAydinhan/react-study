@@ -1,23 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import {IntlProvider, FormattedMessage, FormattedNumber} from 'react-intl'
+import { useState } from 'react';
+const messages = {
+  "tr-TR":{
+    title: "Merhaba Dünya",
+    description: "3 yeni mesajınız var",
+  },
+  "en-US": {
+    title: "Hello World",
+    description: "You have 3 new messages"
+  },
+}
 
 function App() {
+  const [lang , setLang] = useState("tr-TR");
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <IntlProvider
+        messages={messages[lang]}
+      >
+       <FormattedMessage id='title'/>
+       <p>
+        <FormattedMessage id='description'/>
+       </p>
+       <br />
+       <br />
+       <button onClick={() => setLang("tr-TR")}>TR</button>
+       <button onClick={() => setLang("en-US")}>EN</button>
+      </IntlProvider>
     </div>
   );
 }
